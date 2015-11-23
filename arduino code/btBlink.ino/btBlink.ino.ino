@@ -1,4 +1,5 @@
 String message; //string that stores the incoming message
+bool newlineTest = 1;
 
 void setup() {
   Serial1.begin(9600); //set baud rate
@@ -6,24 +7,45 @@ void setup() {
 }
 
 void loop() {
-//  while(Serial1.available())
-//  {//while there is data available on the serial monitor
-//    Serial1.println("sup");
-//    message+=char(Serial1.read());//store string from serial command
+
+  if (Serial1.available() > 0) {
+    Serial1.println("got it!");
+    char received = char(Serial1.read()); //read string from serial command
+    message += received; //store string from serial command
+    if (received == '\n') {
+      Serial1.print("Message received: ");
+      Serial1.print(message);
+      message = "";
+    }
+  }
+//
+//  // Process message when new line character is recieved
+//  if (recieved == '\n') {
+//    Serial.print("Arduino Received: ");
+//    Serial.print(inData);
+//
+//    inData = ""; // Clear recieved buffer
 //  }
-//  if(!Serial1.available())
-//  {
-//    if(message!="")
-//    {//if data is available
-//      Serial1.println("hi");
-//      Serial1.println(message); //show the data
-//      message=""; //clear the data
+////
+//  if (Serial1.read() == "/") {
+//    newlineTest = 1;
+//  }
+//
+//  if (newlineTest == 1) {
+//    Serial1.println(message);
+//    newlineTest = 0;
+//    message = "";
+//  }
+//  if (!Serial1.available() > 0) {
+//    if (message != "") {
+//      Serial1.println(message);
+//      message = "";
 //    }
 //  }
-  Serial1.println("hi");
-  digitalWrite(13, HIGH);
-  delay(100);
-  digitalWrite(13, LOW);
-  delay(1000); //delay
+
+//  digitalWrite(13, HIGH);
+//  digitalWrite(13, LOW);
+//  delay(1000); //delay
+  
 }
 

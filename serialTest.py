@@ -15,7 +15,8 @@ while True:
 	s.write('i want cereal')
 	# time.sleep(0.5)
 	print('waiting..')
-	# s.read()
-	message = s.readline()
-	print(message)
+	if s.inWaiting():
+		message = s.read(s.inWaiting())
+		print(message)
+	# s.readline()
 	time.sleep(0.5)
