@@ -18,34 +18,4 @@ void loop() {
       message = "";
     }
   }
-//
-//  // Process message when new line character is recieved
-//  if (recieved == '\n') {
-//    Serial.print("Arduino Received: ");
-//    Serial.print(inData);
-//
-//    inData = ""; // Clear recieved buffer
-//  }
-////
-//  if (Serial1.read() == "/") {
-//    newlineTest = 1;
-//  }
-//
-//  if (newlineTest == 1) {
-//    Serial1.println(message);
-//    newlineTest = 0;
-//    message = "";
-//  }
-//  if (!Serial1.available() > 0) {
-//    if (message != "") {
-//      Serial1.println(message);
-//      message = "";
-//    }
-//  }
-
-//  digitalWrite(13, HIGH);
-//  digitalWrite(13, LOW);
-//  delay(1000); //delay
-  
 }
-
